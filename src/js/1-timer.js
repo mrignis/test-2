@@ -1,9 +1,9 @@
 // js/1-timer.js
 
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
+import 'node_modules/flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+import 'node_modules/izitoast/dist/css/iziToast.min.css';
 
 document.addEventListener('DOMContentLoaded', function () {
   const options = {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   };
 
-  const dateTimePicker = flatpickr('#datetime-picker', options);
+  flatpickr('#datetime-picker', options);
 
   function addLeadingZero(value) {
     return value.toString().padStart(2, '0');
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function startCountdown() {
-    const userSelectedDate = dateTimePicker.selectedDates[0];
+    const userSelectedDate = flatpickr('#datetime-picker').selectedDates[0];
     const currentDate = new Date();
     const timeDifference = userSelectedDate - currentDate;
 
