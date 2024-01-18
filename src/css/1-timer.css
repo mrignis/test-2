@@ -1,0 +1,60 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+#datetime-picker {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.field {
+    margin: 0 10px;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2ecc71;
+}
+
+.label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* iziToast styles */
+.iziToast {
+    font-family: Arial, sans-serif;
+}
+
+/* Override iziToast theme colors if needed */
+.iziToast-color-error .iziToast-icon {
+    background: #e74c3c;
+}
