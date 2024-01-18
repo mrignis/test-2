@@ -1,12 +1,12 @@
 // js/1-timer.js
 
 import flatpickr from 'flatpickr';
-import 'node_modules/flatpickr/dist/flatpickr.min.css';
+import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
-import 'node_modules/izitoast/dist/css/iziToast.min.css';
+import 'izitoast/dist/css/iziToast.min.css';
 
 document.addEventListener('DOMContentLoaded', function () {
-  const options = {
+  const datetimePicker = flatpickr('#datetime-picker', {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
@@ -14,19 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
     onClose(selectedDates) {
       const userSelectedDate = selectedDates[0];
 
+      const startButton = document.getElementById('start-btn');
       if (userSelectedDate < new Date()) {
-        document.getElementById('start-btn').disabled = true;
+        startButton.disabled = true;
         iziToast.error({
           title: 'Error',
           message: 'Please choose a date in the future',
         });
       } else {
-        document.getElementById('start-btn').disabled = false;
+        startButton.disabled = false;
       }
     },
-  };
-
-  flatpickr('#datetime-picker', options);
+  });
 
   function addLeadingZero(value) {
     return value.toString().padStart(2, '0');
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function startCountdown() {
-    const userSelectedDate = flatpickr('#datetime-picker').selectedDates[0];
+    const userSelectedDate = datetimePicker.selectedDates[0];
     const currentDate = new Date();
     const timeDifference = userSelectedDate - currentDate;
 
